@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigation } from "@react-navigation/native";
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TextInput, TouchableOpacity, View, Image, StatusBar, LayoutAnimation } from 'react-native';
 import * as firebase from 'firebase';
 
 export default function LoginScreen() {
@@ -30,47 +30,67 @@ export default function LoginScreen() {
         navigation.navigate('Register'); 
     }
 
+    LayoutAnimation.easeInEaseOut();
+
 
  
-        return (
-            <View style={styles.container} >
-                <Text style={styles.greeting}>{`Hello again.\nWelcome back.`}</Text>
+    return (
+        <View style={styles.container} >
+            <StatusBar barStyle="light-content" translucent backgroundColor="transparent" ></StatusBar>
 
-                <View style={styles.errorMessage}>
-                    {errorMessage && <Text style={styles.error}>{errorMessage}</Text>}
-                </View>
+            <Image
+                source={require("./assets/authHeader.png")}
+                style={{ marginTop: -50, marginLeft: -10}}
+            ></Image>
 
-                <View style={styles.form}>
-                    <View>
-                        <Text style={styles.inputTitle}>Email Address</Text>
-                        <TextInput 
-                            style={styles.input} 
-                            autoCapitalize="none"
-                            onChangeText={text => setEmail(text)}
-                            value={email}
-                        ></TextInput>
-                    </View>
-                    <View style={{ marginTop: 32}} >
-                        <Text style={styles.inputTitle}>Password</Text>
-                        <TextInput 
-                            style={styles.input} 
-                            secureTextEntry autoCapitalize="none"
-                            onChangeText={text => setPassword(text)}
-                            value={password}
-                        ></TextInput>
-                    </View>
-                </View>
-                <TouchableOpacity style={styles.button} onPress={() => handleLogin()}>
-                    <Text style={{ color: "#FFF", fontWeight: "500" }}>Sign In</Text>
-                </TouchableOpacity>
+            <Image
+                source={require("./assets/authFooter.png")}
+                style={{ position: "absolute", bottom: -5, right: 0 }}
+            ></Image>
 
-                <TouchableOpacity style={{ alignSelf: "center", marginTop: 32 }} onPress={() => handleRegister()}>
-                    <Text style={{ color: "#414959", fontSize: 13 }}>
-                        New to SocialApp? <Text style={{ fontWeight: "500", color: "#E9446A" }}>Sign Up</Text>
-                    </Text>
-                </TouchableOpacity>
+            <Image
+                source={require("./assets/LoginLogo.png")}
+                style={{ marginTop: -110, alignSelf: "center" }}
+            ></Image>
+
+
+            <Text style={styles.greeting}>{`Hello again.\nWelcome back.`}</Text>
+
+            <View style={styles.errorMessage}>
+                {errorMessage && <Text style={styles.error}>{errorMessage}</Text>}
             </View>
-        )
+
+            <View style={styles.form}>
+                <View>
+                    <Text style={styles.inputTitle}>Email Address</Text>
+                    <TextInput 
+                        style={styles.input} 
+                        autoCapitalize="none"
+                        onChangeText={text => setEmail(text)}
+                        value={email}
+                    ></TextInput>
+                </View>
+                <View style={{ marginTop: 32}} >
+                    <Text style={styles.inputTitle}>Password</Text>
+                    <TextInput 
+                        style={styles.input} 
+                        secureTextEntry autoCapitalize="none"
+                        onChangeText={text => setPassword(text)}
+                        value={password}
+                    ></TextInput>
+                </View>
+            </View>
+            <TouchableOpacity style={styles.button} onPress={() => handleLogin()}>
+                <Text style={{ color: "#FFF", fontWeight: "500" }}>Sign In</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={{ alignSelf: "center", marginTop: 32 }} onPress={() => handleRegister()}>
+                <Text style={{ color: "#414959", fontSize: 13 }}>
+                    New to SocialApp? <Text style={{ fontWeight: "500", color: "#E9446A" }}>Sign Up</Text>
+                </Text>
+            </TouchableOpacity>
+        </View>
+    )
 }
 
 const styles = StyleSheet.create({
@@ -78,7 +98,7 @@ const styles = StyleSheet.create({
         flex: 1
     },
     greeting: {
-        marginTop: 32,
+        marginTop: -22,
         fontSize: 18,
         fontWeight: "400",
         textAlign: 'center'
