@@ -1,11 +1,11 @@
 import * as React from 'react';
+import FirebaseKeys from "./config";
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from "@expo/vector-icons";
 
 import LoadingScreen from "./screens/LoadingScreen";
-import TabNavigation from "./screens/TabNavigation";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 
@@ -14,23 +14,15 @@ import MessageScreen from "./screens/MessageScreen";
 import PostScreen from "./screens/PostScreen";
 import NotificationScreen from "./screens/NotificationScreen";
 import ProfileScreen from "./screens/ProfileScreen";
+import Camerascreen from "./screens/Camerascreen";
+import MediaLibraryScreen from "./screens/MediaLibraryScreen";
 
 import * as firebase from 'firebase';
 
-var firebaseConfig = {
-    apiKey: "AIzaSyBvC5Y5r6kfNwCCHgXU3bX03AtuK0mF-7k",
-    authDomain: "anthem-log.firebaseapp.com",
-    databaseURL: "https://anthem-log.firebaseio.com",
-    projectId: "anthem-log",
-    storageBucket: "anthem-log.appspot.com",
-    messagingSenderId: "373659832607",
-    appId: "1:373659832607:web:bcc214a7eaa7a1e335e02a",
-    measurementId: "G-4QFEDEK3PF"
-};
+var firebaseConfig = FirebaseKeys;
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-
-
 
 const Tab = createBottomTabNavigator();
 
@@ -70,7 +62,9 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="MediaLibrary" component={MediaLibraryScreen} />
+        <Stack.Screen name="Camera" component={Camerascreen} />
         <Stack.Screen name="Loading" component={LoadingScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Register" component={RegisterScreen} />

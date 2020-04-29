@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigation } from "@react-navigation/native";
 import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
 import * as firebase from 'firebase';
+import Fire from "../Fire";
 
 export default function LoadingScreen() {    
 
