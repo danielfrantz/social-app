@@ -21,3 +21,6 @@ https://git-scm.com/download
 // git show 
 // git branch --name
 // git checkout branch
+// git branch
+// git merge modalscreen
+// git branch -D modalscreen
