@@ -12,15 +12,19 @@ https://git-scm.com/download
 - [x] Você deseja verificar mudanças feitas no seu projeto
 - 
 - [x] Você começa uma nova funcionalidade no seu projeto, sem estragar o que já foi feito.
-- [] Você adiciona as novas funcionalidades ao seu projeto em produção.
-- [] Você quer deletar a branch da nova funcionalidade, depois de aplicar em seu projeto.
+- [x] Você adiciona as novas funcionalidades ao seu projeto em produção.
+- [x] Você quer deletar a branch da nova funcionalidade, depois de aplicar em seu projeto.
 
-// git init
-// git status
-// git add .
-// git show 
-// git branch --name
-// git checkout branch
-// git branch
-// git merge modalscreen
-// git branch -D modalscreen
+- `git init` // inicia a linha do tempo
+- `git add .` // adiciona ou atualiza mudanças para irem para linha do tempo.
+- `git commit` // adiciona um ponto na linha do tempo.
+- `git log` // visualiza os pontos na linha do tempo / commit.
+- `git status` // informa o estado das alterações do nosso projeto.
+- `git show` // apresenta determinado ponto da historia.
+- `git branch --name`
+- `git checkout branch`
+- `git branch`
+- `git merge modalscreen`
+- `git branch -D modalscreen`
+- `git push -u origin master`
+- `git config credential.helper store`
